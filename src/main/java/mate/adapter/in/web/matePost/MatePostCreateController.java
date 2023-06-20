@@ -3,7 +3,7 @@ package mate.adapter.in.web.matePost;
 import lombok.RequiredArgsConstructor;
 import mate.adapter.in.request.CreateMatePostRequest;
 import mate.application.port.in.usecase.CreateMatePostUseCase;
-import mate.global.annotation.LoginUser;
+import mate.global.kafka.KafkaProducer;
 import mate.global.utils.ReturnObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,18 +12,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/matePost")
 public class MatePostCreateController {
 
     private final CreateMatePostUseCase createMatePostUseCase;
+    private final KafkaProducer kafkaProducer;
 
     @PostMapping("/create")
     public ResponseEntity<ReturnObject> createMatePost(
-            @LoginUser User user,
+            HttpServletRequest httpServletRequest,
             @RequestBody CreateMatePostRequest createMatePostRequest
     ) {
+        String username = httpServletRequest.getHeader("LOGIN_MEMBER");
+        kafkaProducer.send("example-catalog-topic", username);
+
         createMatePostUseCase.createMatePost(createMatePostRequest, user);
 
         ReturnObject returnObject = ReturnObject.builder()

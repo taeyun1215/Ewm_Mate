@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import mate.domain.MatePost;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -12,19 +11,21 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 public class KafkaProducer {
-    private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void send(String topic, MatePost matePost) {
+    private final KafkaTemplate<String, String> kafkaTemplate;
+
+    public void send(String topic, String username) {
         ObjectMapper mapper = new ObjectMapper();
         String jsonInString = "";
 
         try {
-            jsonInString = mapper.writeValueAsString(matePost);
+            jsonInString = mapper.writeValueAsString(username);
         } catch (JsonProcessingException exception) {
             exception.printStackTrace();
         }
 
+        log.info("Kafka Producer sent: " + username);
+
         kafkaTemplate.send(topic, jsonInString);
-        log.info("Kafka Producer sent: " + matePost);
     }
 }

@@ -4,7 +4,6 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import mate.adapter.in.request.ModifyMatePostRequest;
 import mate.adapter.out.persistence.matePost.MatePostJpaEntity;
 import mate.global.baseEntity.BaseTimeEntity;
 

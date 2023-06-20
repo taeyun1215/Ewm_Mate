@@ -2,7 +2,6 @@ package mate.global.config;
 
 import lombok.RequiredArgsConstructor;
 import mate.global.OAuth.CustomOAuth2UserService;
-import mate.global.argumentResolver.LoginArgumentResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
