@@ -4,6 +4,6 @@ import mate.adapter.in.request.CreateMatePostRequest;
 
 public interface CreateMatePostUseCase {
 
-    void createMatePost(CreateMatePostRequest createMatePostRequest, User user);
+    void createMatePost(CreateMatePostRequest createMatePostRequest, Long userId);
 
 }

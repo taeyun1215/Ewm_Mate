@@ -36,8 +36,8 @@ public class MatePostPersistenceMapper {
         return matePosts;
     }
 
-    public MatePostJpaEntity mapToJpaEntity(MatePost matePost, User user) {
-        return matePost.toJpaEntity(user);
+    public MatePostJpaEntity mapToJpaEntity(MatePost matePost) {
+        return matePost.toJpaEntity();
     }
 
 }

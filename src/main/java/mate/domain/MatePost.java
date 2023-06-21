@@ -28,7 +28,7 @@ public class MatePost extends BaseTimeEntity implements Serializable {
     private Long userId;
     private List<Long> mateIds;
 
-    public MatePostJpaEntity toJpaEntity(User user) {
+    public MatePostJpaEntity toJpaEntity() {
         return MatePostJpaEntity.builder()
                 .id(matePostId)
                 .title(title)
@@ -38,16 +38,16 @@ public class MatePost extends BaseTimeEntity implements Serializable {
                 .view(view)
                 .startTime(startTime)
                 .endTime(endTime)
-                .userId(user.getUserId())
+                .userId(userId)
                 .build();
     }
 
-    public void updateMatePost(ModifyMatePostRequest modifyMatePostRequest) {
-        this.title = modifyMatePostRequest.getTitle();
-        this.content = modifyMatePostRequest.getContent();
-        this.gym = modifyMatePostRequest.getGym();
-        this.startTime = modifyMatePostRequest.getStartTime();
-        this.endTime = modifyMatePostRequest.getEndTime();
-    }
+//    public void updateMatePost(ModifyMatePostRequest modifyMatePostRequest) {
+//        this.title = modifyMatePostRequest.getTitle();
+//        this.content = modifyMatePostRequest.getContent();
+//        this.gym = modifyMatePostRequest.getGym();
+//        this.startTime = modifyMatePostRequest.getStartTime();
+//        this.endTime = modifyMatePostRequest.getEndTime();
+//    }
 
 }

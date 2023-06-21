@@ -19,9 +19,9 @@ public class CreateMatePostService implements CreateMatePostUseCase {
     private final SaveMatePostPort saveMatePostPort;
 
     @Override
-    public void createMatePost(CreateMatePostRequest createMatePostRequest, User user) {
-        MatePost matepost = createMatePostRequest.toEntity(user);
-        saveMatePostPort.saveMatePost(matepost, user);
+    public void createMatePost(CreateMatePostRequest createMatePostRequest, Long userId) {
+        MatePost matepost = createMatePostRequest.toEntity(userId);
+        saveMatePostPort.saveMatePost(matepost);
     }
 
 }
