@@ -36,15 +36,15 @@ jobs:
     - name: web docker build and push
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker build -t ${{ secrets.DOCKER_REPO }}/ewm-user .
-        docker push ${{ secrets.DOCKER_REPO }}/ewm-user
+        docker build -t ${{ secrets.DOCKER_REPO }}/ewm-mate .
+        docker push ${{ secrets.DOCKER_REPO }}/ewm-mate
       
     - name: ls -a via ssh
       uses: fifsky/ssh-action@master
       with:
         command: |
-          docker rmi taeyun1215/ewm-user
-          docker pull ${{ secrets.DOCKER_REPO }}/ewm-user
+          docker rmi taeyun1215/ewm-mate
+          docker pull ${{ secrets.DOCKER_REPO }}/ewm-mate
         host: ${{ secrets.HOST }}
         user: ec2-user
         key: ${{ secrets.KEY}}
