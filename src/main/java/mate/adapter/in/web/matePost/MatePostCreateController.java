@@ -28,7 +28,7 @@ public class MatePostCreateController {
             @RequestBody CreateMatePostRequest createMatePostRequest
     ) {
         // Long userId = Long.valueOf(httpServletRequest.getHeader("LOGIN_MEMBER"));
-        kafkaProducer.send("example-catalog-topic", createMatePostRequest);
+        kafkaProducer.send("user-topic", createMatePostRequest);
 
         createMatePostUseCase.createMatePost(createMatePostRequest, 1L);
 
