@@ -25,12 +25,12 @@ public class CreateMatePostRequest extends SelfValidating<CreateMatePostRequest>
 
     private String writer;
 
-    @NotNull(message = "운동 시작하는 시간은 필수 입력 값입니다.")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+//    @NotNull(message = "운동 시작하는 시간은 필수 입력 값입니다.")
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private LocalTime startTime;
 
-    @NotNull(message = "운동 끝나는 시간은 필수 입력 값입니다.")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+//    @NotNull(message = "운동 끝나는 시간은 필수 입력 값입니다.")
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private LocalTime endTime;
 
     public CreateMatePostRequest(
