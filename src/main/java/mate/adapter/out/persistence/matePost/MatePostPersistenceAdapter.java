@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @PersistenceAdapter
 public class MatePostPersistenceAdapter
-        implements SaveMatePostPort {
+        implements SaveMatePostPort, SearchMatePostPort {
 
     private final MatePostJpaRepo matePostJpaRepo;
     private final MatePostPersistenceMapper matePostPersistenceMapper;
@@ -23,5 +23,9 @@ public class MatePostPersistenceAdapter
         matePostJpaRepo.save(matePostPersistenceMapper.mapToJpaEntity(matePost));
     }
 
-
+    @Override
+    public List<MatePost> searchAll(MatePost matePost) {
+        List<MatePostJpaEntity> matePostJpaEntities = matePostJpaRepo.searchAll(matePostPersistenceMapper.mapToJpaEntity(matePost));
+        return matePostPersistenceMapper.mapToDomainEntities(matePostJpaEntities);
+    }
 }
