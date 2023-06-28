@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import mate.adapter.in.request.ModifyMatePostRequest;
 import mate.adapter.out.persistence.matePost.MatePostJpaEntity;
 import mate.global.baseEntity.BaseTimeEntity;
 
@@ -42,12 +43,12 @@ public class MatePost extends BaseTimeEntity implements Serializable {
                 .build();
     }
 
-//    public void updateMatePost(ModifyMatePostRequest modifyMatePostRequest) {
-//        this.title = modifyMatePostRequest.getTitle();
-//        this.content = modifyMatePostRequest.getContent();
-//        this.gym = modifyMatePostRequest.getGym();
-//        this.startTime = modifyMatePostRequest.getStartTime();
-//        this.endTime = modifyMatePostRequest.getEndTime();
-//    }
+    public void updateMatePost(ModifyMatePostRequest modifyMatePostRequest) {
+        this.title = modifyMatePostRequest.getTitle();
+        this.content = modifyMatePostRequest.getContent();
+        this.gym = modifyMatePostRequest.getGym();
+        this.startTime = modifyMatePostRequest.getStartTime();
+        this.endTime = modifyMatePostRequest.getEndTime();
+    }
 
 }

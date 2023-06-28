@@ -10,10 +10,6 @@ import java.util.List;
 public class MatePostPersistenceMapper {
 
     public MatePost mapToDomainEntity(MatePostJpaEntity matePostJpaEntity) {
-//        List<Long> mateIds = matePostJpaEntity.getMates().stream()
-//                .map(MateJpaEntity::getId)
-//                .collect(Collectors.toList());
-
         return MatePost.builder()
                 .matePostId(matePostJpaEntity.getId())
                 .title(matePostJpaEntity.getTitle())

@@ -27,10 +27,8 @@ public class MatePostCreateController {
             HttpServletRequest httpServletRequest,
             @RequestBody CreateMatePostRequest createMatePostRequest
     ) {
-        // Long userId = Long.valueOf(httpServletRequest.getHeader("LOGIN_MEMBER"));
-        kafkaProducer.send("user-topic", createMatePostRequest);
-
-        createMatePostUseCase.createMatePost(createMatePostRequest, 1L);
+        Long userId = Long.valueOf(httpServletRequest.getHeader("LOGIN_MEMBER"));
+        createMatePostUseCase.createMatePost(createMatePostRequest, userId);
 
         ReturnObject returnObject = ReturnObject.builder()
                 .success(true)
