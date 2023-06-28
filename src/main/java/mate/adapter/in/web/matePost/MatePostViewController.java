@@ -1,7 +1,7 @@
 package mate.adapter.in.web.matePost;
 
 import lombok.RequiredArgsConstructor;
-import mate.adapter.out.persistence.response.ViewMatePostResponse;
+import mate.adapter.out.persistence.matePost.response.ViewMatePostResponse;
 import mate.application.port.in.query.LoadMatePostQuery;
 import mate.application.port.in.usecase.ViewCountUpMatePostUseCase;
 import mate.domain.MatePost;

@@ -2,7 +2,7 @@ package mate.adapter.in.web.matePost;
 
 import lombok.RequiredArgsConstructor;
 import mate.adapter.in.request.SearchRequireMatePostRequest;
-import mate.adapter.out.persistence.response.SearchRequireMatePostResponse;
+import mate.adapter.out.persistence.matePost.response.SearchRequireMatePostResponse;
 import mate.application.port.in.query.SearchMatePostQuery;
 import mate.domain.MatePost;
 import mate.global.utils.ReturnObject;

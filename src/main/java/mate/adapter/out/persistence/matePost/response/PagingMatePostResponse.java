@@ -1,4 +1,4 @@
-package mate.adapter.out.persistence.response;
+package mate.adapter.out.persistence.matePost.response;
 
 import lombok.Builder;
 import lombok.Getter;
