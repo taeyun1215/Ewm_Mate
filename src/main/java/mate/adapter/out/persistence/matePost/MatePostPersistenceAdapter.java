@@ -13,7 +13,8 @@ import java.util.List;
 @RequiredArgsConstructor
 @PersistenceAdapter
 public class MatePostPersistenceAdapter
-        implements SaveMatePostPort, SearchMatePostPort, ViewCountUpMatePostStatePort {
+        implements SaveMatePostPort, SearchMatePostPort, ViewCountUpMatePostStatePort,
+        PagingMatePostPort {
 
     private final MatePostJpaRepo matePostJpaRepo;
     private final MatePostPersistenceMapper matePostPersistenceMapper;
@@ -33,4 +34,12 @@ public class MatePostPersistenceAdapter
     public void viewCountUp(Long matePostId) {
         matePostJpaRepo.viewCountUp(matePostId);
     }
+
+    @Override
+    public Page<MatePost> pageMatePostList(Pageable pageable) {
+        Page<MatePostJpaEntity> matePostJpaEntityPage = matePostJpaRepo.findAll(pageable);
+        List<MatePost> matePosts = matePostPersistenceMapper.mapToDomainEntities(matePostJpaEntityPage.getContent());
+        return new PageImpl<>(matePosts, pageable, matePostJpaEntityPage.getTotalElements());
+    }
+
 }
