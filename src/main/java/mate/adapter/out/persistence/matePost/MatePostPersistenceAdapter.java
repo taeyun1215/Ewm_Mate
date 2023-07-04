@@ -14,7 +14,7 @@ import java.util.List;
 @PersistenceAdapter
 public class MatePostPersistenceAdapter
         implements SaveMatePostPort, SearchMatePostPort, ViewCountUpMatePostStatePort,
-        PagingMatePostPort {
+        PagingMatePostPort, LoadMatePostPort {
 
     private final MatePostJpaRepo matePostJpaRepo;
     private final MatePostPersistenceMapper matePostPersistenceMapper;
@@ -42,4 +42,8 @@ public class MatePostPersistenceAdapter
         return new PageImpl<>(matePosts, pageable, matePostJpaEntityPage.getTotalElements());
     }
 
+    @Override
+    public MatePost loadMatePost(Long matePostId) {
+        return null;
+    }
 }
