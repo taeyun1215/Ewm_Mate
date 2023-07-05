@@ -20,7 +20,7 @@ spring:
   datasource:
     url: jdbc:mariadb://15.164.188.74:3306/mate-db
     username: root
-    password: 6548
+    password:
 
   jpa:
     hibernate:
