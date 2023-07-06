@@ -4,10 +4,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Value;
 import mate.domain.MatePost;
 import mate.global.common.SelfValidating;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalTime;
 
 @Value
@@ -25,13 +23,13 @@ public class CreateMatePostRequest extends SelfValidating<CreateMatePostRequest>
 
     private String writer;
 
-    @NotNull(message = "운동 시작하는 시간은 필수 입력 값입니다.")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime startTime;
-
-    @NotNull(message = "운동 끝나는 시간은 필수 입력 값입니다.")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime endTime;
+//    @NotNull(message = "운동 시작하는 시간은 필수 입력 값입니다.")
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+//    private LocalTime startTime;
+//
+//    @NotNull(message = "운동 끝나는 시간은 필수 입력 값입니다.")
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+//    private LocalTime endTime;
 
     public CreateMatePostRequest(
             String title,
@@ -45,8 +43,8 @@ public class CreateMatePostRequest extends SelfValidating<CreateMatePostRequest>
         this.content = content;
         this.gym = gym;
         this.writer = writer;
-        this.startTime = startTime;
-        this.endTime = endTime;
+//        this.startTime = startTime;
+//        this.endTime = endTime;
         this.validateSelf();
     }
 
@@ -56,8 +54,8 @@ public class CreateMatePostRequest extends SelfValidating<CreateMatePostRequest>
                 .content(content)
                 .gym(gym)
                 .writer(writer)
-                .startTime(startTime)
-                .endTime(endTime)
+//                .startTime(startTime)
+//                .endTime(endTime)
                 .userId(userId)
                 .build();
     }
